@@ -15,7 +15,7 @@ class MlbStats::CLI
     # DOC
     
     @teams = MlbStats::Team.today
-    @teams.each.with_index(1) {|team, i| puts "#{i}. #{team.name} - #{team.division} - #{team.division_ranking} - #{team.record}"}
+    @teams.each.with_index(1) {|team, i| puts "#{i}. #{team.location} #{team.name} - #{team.division} - #{team.division_ranking} - #{team.record}"}
   end
   
   def menu
