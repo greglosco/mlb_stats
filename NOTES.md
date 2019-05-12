@@ -20,3 +20,10 @@ show a list of mlb teams
 3. 
 
 Which team would you like to learn more about?
+
+what is a team?
+
+a team has a name
+a team has a division
+a team has a division ranking
+a team has a record
