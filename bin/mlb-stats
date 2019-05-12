@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require "bundler/setup"
+require "mlb_stats"
+
 require './lib/mlb_stats'
 
 MlbStats::CLI.new.call

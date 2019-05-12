@@ -1,11 +1,12 @@
-class MLBStats::Team 
+class MlbStats::Team 
   attr_accessor :name, :division, :division_ranking, :record, :url
+  
   def self.today
     #return bunch of instances of teams
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Boston Red Sox - AL East - 1st Place - 1-0
-    2. New York Yankees - AL East - 2nd Place
-    DOC
+    # puts <<-DOC.gsub /^\s*/, ''
+    # 1. Boston Red Sox - AL East - 1st Place - 1-0
+    # 2. New York Yankees - AL East - 2nd Place
+    # DOC
     
     team_1 = self.new 
     team_1.name = "Boston Red Sox"

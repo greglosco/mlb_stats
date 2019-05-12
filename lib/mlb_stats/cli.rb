@@ -14,7 +14,7 @@ class MlbStats::CLI
     2. New York Yankees - AL East - 2nd Place
     DOC
     
-    @teams = MLBStats::Team.today
+    @teams = MlbStats::Team.today
   end
   
   def menu
