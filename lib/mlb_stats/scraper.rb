@@ -5,11 +5,11 @@ def get_page
 end
 
 def scrape_teams_index
-  self.get_page.css("div.teams li")
+  self.get_page.css("div.teams")
 end
   
   
-  def make_team
+  def make_teams
     scrape_teams_index.each {|i| MlbStats::Team.new_from_index(i)}
   end 
 
