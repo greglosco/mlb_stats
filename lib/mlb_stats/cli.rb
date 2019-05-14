@@ -1,26 +1,51 @@
 class MlbStats::CLI 
   
   def call 
+    
+    MlbStats::Scraper.new.make_conferences
+    MlbStats::Scraper.new.make_divisions
     MlbStats::Scraper.new.make_teams
-    "Welcome to the MLB Team Stat Tracker"
+    
+    puts "Welcome to the MLB Team Stat Tracker!!!"
+    list_conferences
+    puts "Pick a Conference"
+    input = gets.strip
+    input = MlbStats::Conference.find(input.to_i)
+    list_divisions(input)
+    puts "Pick a division"
+    puts "Pick a team"
     list_teams
     menu
     goodbye
   end
   
-  def list_teams
-    @teams = MlbStats::Team.all
-    @teams.each.with_index(1) {|team, i| puts "#{i}. #{team.teamname}"}
+  def list_conferences
+    MlbStats::Conference.all.each.with_index(1) {|conference, i| puts "#{i}. #{conference.name}"}
+  end
+  
+  def list_divisions(input)
+    MlbStats::Division.all[input-1, 0].each.with_index(input) {|division, i| puts "#{i}. #{division.name}"}
+  end
+  
+  def list_teams(input)
+    MlbStats::Team.all.each.with_index(1) {|team, i| puts "#{i}. #{team.teamname}"}
   end
   
   def menu
-      
+      puts "What team would you like stats on?"
+      input = gets.strip
+      team = MlbStats::Team.find(input.to_i)
+      print_team_stats(team)
   end
 
-  def print_team(team)
-    
-    
-    
+  def print_team_stats(team)
+    puts "Team: #{team.teamname}"
+    puts "#{team.conference}"
+    puts "#{team.division}"
+    puts "Record: #{team.record}"
+    puts "#{team.standing}"
+    puts "#{team.home_record}"
+    puts "#{team.away_record}"
   end
 
   def goodbye

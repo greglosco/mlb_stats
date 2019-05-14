@@ -1,30 +1,30 @@
 class MlbStats::Team 
   
-  attr_accessor :teamname, :record, :conference, :division, :url, :standing, :home_record, :away_record
+  attr_accessor :teamname, :record, :url, :standing, :home_record, :away_record
   
   @@all = []
   
   def self.new_from_index(i)
     self.new(
-        i.css("li .teamname").text,
-        i.css("li .teamrecord").text,
-        i.css("h3").text,
-        i.css("h4").text,
-        i.css("li .teamlink").text
+        i.css(".teamname").text,
+        i.css(".teamrecord").text,
+        i.css(".teamlink").text
       )
   end
   
-  def initialize (teamname=nil, record=nil, conference=nil, division=nil, url=nil)
+  def initialize (teamname=nil, record=nil, url=nil)
     @teamname = teamname
     @record = record
-    @conference = conference
-    @division = division 
     @url = url
     @@all << self
   end
   
   def self.all 
     @@all 
+  end
+  
+  def self.find(id)
+    self.all[id-1]
   end
   
   def doc
