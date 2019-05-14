@@ -14,8 +14,8 @@ class MlbStats::CLI
     # 2. New York Yankees - AL East - 2nd Place
     # DOC
     
-    @teams = MlbStats::Team.today
-    @teams.each.with_index(1) {|team, i| puts "#{i}. #{team.location} #{team.name} - #{team.division} - #{team.division_ranking} - #{team.record}"}
+    @teams = MlbStats::Team.enter
+    @teams.each.with_index(1) {|team, i| puts "#{i}. #{team.location} #{team.name} - #{team.division_ranking_and_division} - #{team.record}"}
   end
   
   def menu
