@@ -8,7 +8,7 @@ class MlbStats::Team
     self.new(
         i.css(".teamname").text,
         i.css(".teamrecord").text,
-        i.css(".teamlink").text
+        "https://www.msn.com#{i.css("a").attribute("href").text}",
       )
   end
   
@@ -43,8 +43,6 @@ class MlbStats::Team
     @awayrecord ||= doc.css("div.records div.record:nth-child(4) div.value")
   end
   
-  
-   
 end
 
 # def self.enter

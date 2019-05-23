@@ -17,8 +17,11 @@ class MlbStats::CLI
     # input = MlbStats::Conference.find(input.to_i)
     # list_divisions(input)
     # puts "Pick a division"
-    puts "Pick a team"
     list_teams
+    puts "Pick a team"
+    input = gets.strip
+    team = MlbStats::Team.find(input.to_i)
+    print_team_stats(team)
     goodbye
   end
   
@@ -41,15 +44,15 @@ class MlbStats::CLI
   #     print_team_stats(team)
   # end
 
-  # def print_team_stats(team)
-  #   puts "Team: #{team.teamname}"
-  #   puts "#{team.conference}"
-  #   puts "#{team.division}"
-  #   puts "Record: #{team.record}"
-  #   puts "#{team.standing}"
-  #   puts "#{team.home_record}"
-  #   puts "#{team.away_record}"
-  # end
+  def print_team_stats(team)
+    puts "Team: #{team.teamname}"
+    # puts "#{team.conference}"
+    # puts "#{team.division}"
+    puts "Record: #{team.record}"
+    puts "Standing: #{team.standing}"
+    puts "Home Record: #{team.home_record}"
+    puts "Away Record: #{team.away_record}"
+  end
 
   def goodbye
     puts "See you tomorrow for updated team stats!"
