@@ -1,6 +1,6 @@
 class MlbStats::Team 
   
-  attr_accessor :teamname, :record, :url, :standing, :home_record, :away_record
+  attr_accessor :teamname, :record, :url, :standing, :home_record, :away_record, :division
   
   @@all = []
   

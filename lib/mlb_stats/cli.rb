@@ -2,8 +2,8 @@ class MlbStats::CLI
   
   def call 
     
-    # MlbStats::Scraper.new.make_conferences
-    # MlbStats::Scraper.new.make_divisions
+    MlbStats::Scraper.new.make_conferences
+    MlbStats::Scraper.new.make_divisions
     MlbStats::Scraper.new.make_teams
     
     puts "Welcome to the MLB Team Stat Tracker!!!"
@@ -11,12 +11,12 @@ class MlbStats::CLI
   end
   
   def menu
-    # list_conferences
-    # puts "Pick a Conference"
-    # input = gets.strip
-    # input = MlbStats::Conference.find(input.to_i)
-    # list_divisions(input)
-    # puts "Pick a division"
+    list_conferences
+    puts "Pick a Conference"
+    input = gets.strip
+    input = MlbStats::Conference.find(input.to_i)
+    list_divisions(input)
+    puts "Pick a division"
     list_teams
     puts "Pick a team"
     input = gets.strip
@@ -25,13 +25,13 @@ class MlbStats::CLI
     goodbye
   end
   
-  # def list_conferences
-  #   MlbStats::Conference.all.each.with_index(1) {|conference, i| puts "#{i}. #{conference.name}"}
-  # end
+  def list_conferences
+    MlbStats::Conference.all.each.with_index(1) {|conference, i| puts "#{i}. #{conference.name}"}
+  end
   
-  # def list_divisions(input)
-  #   MlbStats::Division.all[input-1, 0].each.with_index(input) {|division, i| puts "#{i}. #{division.name}"}
-  # end
+  def list_divisions(input)
+    MlbStats::Division.all[input-1, 0].each.with_index(input) {|division, i| puts "#{i}. #{division.name}"}
+  end
   
   def list_teams
     MlbStats::Team.all.each.with_index(1) {|team, i| puts "#{i}. #{team.teamname}"}
