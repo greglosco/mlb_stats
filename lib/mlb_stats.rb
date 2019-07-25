@@ -7,3 +7,4 @@ require_relative "./mlb_stats/division"
 
 require 'nokogiri'
 require 'open-uri'
+require 'pry'

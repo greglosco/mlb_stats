@@ -13,6 +13,7 @@ class MlbStats::Division
   def initialize(name=nil)
     @name = name
     @@all << self 
+    
     @teams = []
   end
   

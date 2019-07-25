@@ -30,7 +30,8 @@ class MlbStats::CLI
   end
   
   def list_divisions(input)
-    MlbStats::Division.all[input-1, 0].each.with_index(input) {|division, i| puts "#{i}. #{division.name}"}
+    binding.pry
+    MlbStats::Division.all.each.with_index(1) {|division, i| puts "#{i}. #{division.name}"}
   end
   
   def list_teams
