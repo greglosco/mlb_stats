@@ -5,3 +5,4 @@ require_relative "./mlb_stats/scraper"
 
 require 'nokogiri'
 require 'open-uri'
+require 'pry'
