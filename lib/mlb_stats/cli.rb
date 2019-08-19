@@ -12,13 +12,27 @@ class MlbStats::CLI
   
   def menu
     list_teams
-    puts "Pick a team"
+    puts "Pick a team by entering a number between 1-30"
     input = gets.strip
     valid_input?(input)
-    team = MlbStats::Team.find(input.to_i)
-    print_team_stats(team)
-    goodbye
-  end
+      until valid_input?(input) == true
+        puts "Please enter a valid number"
+        input = gets.strip
+        valid_input?(input)
+      end
+     
+      team = MlbStats::Team.find(input.to_i)
+      print_team_stats(team)
+      
+      puts "Enter 'menu' to return to the main menu for more stats, or 'goodbye' to exit"
+      input = gets.strip
+      if input == "goodbye"
+        goodbye
+      else
+        menu
+      end
+
+    end
   
   def list_teams
     MlbStats::Team.all.each.with_index(1) { |team, i| puts "#{i}. #{team.teamname}"}
@@ -30,10 +44,7 @@ class MlbStats::CLI
   end
   
   def valid_input?(input)
-    if !input.to_i.between?(1,32)
-      puts "Invalid number: Please enter a valid number"
-      menu
-    end
+    input.to_i.between?(1,31) || !input == nil || input.is_a?(Integer)
   end
 
   def goodbye
