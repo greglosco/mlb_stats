@@ -6,7 +6,7 @@ class MlbStats::CLI
   def call 
     MlbStats::Scraper.new.make_teams
     
-    puts "Welcome to the MLB Team Stat Tracker!!!"
+    puts "Welcome to the MLB Team Stat Tracker!!! -- By Greg Losco"
     menu
   end
   
